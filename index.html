@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Filmes e Séries Cover</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 nav-transition px-4 md:px-12 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <!-- Logo -->
+            <a href="#" class="text-red-600 font-black text-3xl tracking-tighter uppercase">
+                StreamFlix
+            </a>
+            <!-- Links (Escondidos no mobile) -->
+            <ul class="hidden md:flex gap-5 text-sm font-medium text-gray-300">
+                <li><a href="#" class="text-white font-semibold">Início</a></li>
+                <li><a href="#" class="hover:text-gray-400 transition">Séries Cover</a></li>
+                <li><a href="#" class="hover:text-gray-400 transition">Filmes Fan-Made</a></li>
+                <li><a href="#" class="hover:text-gray-400 transition">Bombando</a></li>
+                <li><a href="#" class="hover:text-gray-400 transition">Minha Lista</a></li>
+            </ul>
+        </div>
+        
+        <div class="flex items-center gap-5 text-white">
+            <button class="hover:text-gray-400 transition"><i class="fas fa-search text-lg"></i></button>
+            <button class="hover:text-gray-400 transition hidden md:block"><i class="fas fa-bell text-lg"></i></button>
+            <div class="w-8 h-8 rounded bg-gray-600 overflow-hidden cursor-pointer">
+                <img src="https://placehold.co/100x100/333/FFF?text=U" alt="User" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[70vh] md:h-[85vh] w-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop');">
+        <!-- Overlay Gradient -->
+        <div class="absolute inset-0 hero-gradient"></div>
+        
+        <!-- Conteúdo do Hero -->
+        <div class="absolute inset-0 flex flex-col justify-center px-4 md:px-12 w-full md:w-2/3 lg:w-1/2 pt-20">
+            <span class="text-red-500 font-bold tracking-widest text-sm mb-2 drop-shadow-md">ORIGINAL STREAMFLIX</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-4 drop-shadow-lg leading-tight uppercase">Cyberpunk <br> <span class="text-4xl md:text-5xl text-gray-300">Awakening</span></h1>
+            <p class="text-sm md:text-lg text-gray-200 mb-6 drop-shadow-md font-medium max-w-xl">
+                Nesta incrível produção de fãs, acompanhe a jornada de um hacker renegado tentando derrubar uma megacorporação nas ruas chuvosas de Neo-Tokyo. Um cover magistral do clássico cyberpunk.
+            </p>
+            
+            <div class="flex gap-4">
+                <button onclick="openModal()" class="bg-white text-black px-6 md:px-8 py-2 md:py-3 rounded flex items-center gap-2 font-bold hover:bg-gray-200 transition">
+                    <i class="fas fa-play"></i> Assistir
+                </button>
+                <button class="bg-gray-500/70 text-white px-6 md:px-8 py-2 md:py-3 rounded flex items-center gap-2 font-bold hover:bg-gray-500/90 transition backdrop-blur-sm">
+                    <i class="fas fa-info-circle"></i> Mais Informações
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (Rows) -->
+    <main class="relative pb-20 -mt-20 md:-mt-32 z-10 space-y-8 md:space-y-12">
+        
+        <!-- Categoria 1: Fan Films Populares -->
+        <section class="pl-4 md:pl-12 row-container relative group">
+            <h2 class="text-xl md:text-2xl font-bold mb-3 text-gray-100 flex items-center gap-2">
+                Fan Films Populares <span class="text-sm text-blue-400 hidden group-hover:inline cursor-pointer hover:underline">Explorar tudo ></span>
+            </h2>
+            <div class="relative">
+                <!-- Botão Scroll Esquerda -->
+                <button class="row-btn absolute left-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-r" onclick="scrollRow('row1', -400)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <!-- Container de Rolagem -->
+                <div id="row1" class="flex gap-3 overflow-x-auto hide-scroll pb-4 pr-12 scroll-smooth">
+                    <!-- Miniaturas geradas estaticamente -->
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/1a1a2e/e94560?text=Batman+Dark+Night" alt="Cover 1" class="w-full h-full object-cover">
+                        <div class="absolute bottom-2 left-2 bg-red-600 text-xs px-1 rounded font-bold">COVER</div>
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/16213e/0f3460?text=Spiderman+Lotus" alt="Cover 2" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/0f3460/e94560?text=Star+Wars+Origins" alt="Cover 3" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/e94560/1a1a2e?text=Matrix+Reborn" alt="Cover 4" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/222/FFF?text=Lord+Of+Rings+Fan" alt="Cover 5" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/444/EEE?text=Harry+Potter+Prequel" alt="Cover 6" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/111/f00?text=Wolverine+Savage" alt="Cover 7" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Botão Scroll Direita -->
+                <button class="row-btn absolute right-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-l" onclick="scrollRow('row1', 400)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categoria 2: Covers em Alta -->
+        <section class="pl-4 md:pl-12 row-container relative group">
+            <h2 class="text-xl md:text-2xl font-bold mb-3 text-gray-100 flex items-center gap-2">Covers em Alta</h2>
+            <div class="relative">
+                <button class="row-btn absolute left-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-r" onclick="scrollRow('row2', -400)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="row2" class="flex gap-3 overflow-x-auto hide-scroll pb-4 pr-12 scroll-smooth">
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/2c3e50/ecf0f1?text=Breaking+Bad+BR" alt="Cover 8" class="w-full h-full object-cover">
+                        <div class="absolute top-2 left-2 text-red-600 font-bold bg-black/50 px-1 rounded-sm"><i class="fas fa-fire"></i> TOP 1</div>
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/8e44ad/ecf0f1?text=Stranger+Things+BR" alt="Cover 9" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/d35400/ecf0f1?text=The+Office+Indie" alt="Cover 10" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/27ae60/ecf0f1?text=TWD+Survivors" alt="Cover 11" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/1abc9c/ecf0f1?text=Vikings+Saga" alt="Cover 12" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <button class="row-btn absolute right-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-l" onclick="scrollRow('row2', 400)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categoria 3: Ação -->
+        <section class="pl-4 md:pl-12 row-container relative group">
+            <h2 class="text-xl md:text-2xl font-bold mb-3 text-gray-100 flex items-center gap-2">Ação Independente</h2>
+            <div class="relative">
+                <button class="row-btn absolute left-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-r" onclick="scrollRow('row3', -400)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="row3" class="flex gap-3 overflow-x-auto hide-scroll pb-4 pr-12 scroll-smooth">
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/c0392b/fff?text=John+Wick+Cover" alt="Acao 1" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/e67e22/fff?text=Mad+Max+Fan" alt="Acao 2" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/f39c12/fff?text=Terminator+Short" alt="Acao 3" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/7f8c8d/fff?text=Predator+Hunt" alt="Acao 4" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openModal()" class="thumbnail flex-none w-40 md:w-64 rounded-md overflow-hidden relative">
+                        <img src="https://placehold.co/400x225/34495e/fff?text=Die+Hard+Tribute" alt="Acao 5" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <button class="row-btn absolute right-0 top-0 bottom-0 z-20 w-12 flex justify-center items-center text-3xl rounded-l" onclick="scrollRow('row3', 400)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal do Reprodutor de Vídeo -->
+    <div id="videoModal" class="fixed inset-0 z-[100] bg-black bg-opacity-95 hidden flex justify-center items-center backdrop-blur-sm transition-opacity duration-300">
+        <!-- Botão Fechar -->
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-red-500 transition text-4xl z-[110]">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Container do Vídeo -->
+        <div class="relative w-full max-w-5xl mx-4 aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+            <!-- Usando o vídeo open-source Big Buck Bunny como placeholder -->
+            <video id="videoPlayer" class="w-full h-full outline-none" controls preload="none" poster="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </div>
+</body>
+</html>
